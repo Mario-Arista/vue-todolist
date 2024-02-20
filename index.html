@@ -17,31 +17,43 @@
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
-<body>
+<body class="bg-dark font-monospace">
     <!-- VUE 3 -->
     <script src="https://unpkg.com/vue@3"></script>
 
     <div id="app" class="container py-5">
         
-        <h1 class="mb-5">
-            TO DO List
+        <h1 class="mb-5 text-white">
+            To-do List 
         </h1>
 
-        <div id="todo-container" class="mb-5">
+        <div class="container">
 
                 <!-- Inizio ul -->
-            <ul>
-
-                <li v-for="(currentTask) in toDos"
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                    :class="{ 'text-decoration-line-through': currentTask.done === true }"
+            <ul class="col-10 mb-4"
+                v-if="toDos.length > 0"
+            >
+                <li v-for="(currentTask, index) in toDos"
+                    class="list-group-item d-flex justify-content-between align-items-center bg-transparent border border-1 border-success text-white p-3"
                 >
-                    {{ currentTask.text }}
+                    <span
+                        :class="{ 'text-decoration-line-through': currentTask.done === true }"
+                    >
+                        {{ currentTask.text }}
+                    </span>
+
+                    <i 
+                        @click="deleteTodo(index)"
+                        class="fa-solid fa-circle-xmark fs-4"></i>
                 </li>
 
             </ul>
+            <p v-else class="text-warning">
+                Hai fatto tutte le cose che dovevi fare!
+            </p>
             
         </div>
+
 
     </div>
 

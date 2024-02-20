@@ -26,8 +26,11 @@ createApp({
     },
 
     methods: {
-        // Inserire funzioni
 
+        // Fuznione per cancellare todo al click sulla X
+        deleteTodo(todoIndex) {
+            this.toDos.splice(todoIndex, 1)
+        },
     },
 
 }).mount("#app");
