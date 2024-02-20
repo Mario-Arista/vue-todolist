@@ -4,11 +4,11 @@ createApp({
     data() {
         return {
 
-            // Dichiaro nuovo To Do vuoto
+            // Dichiaro nuovo To-Do da aggiungere con input
             newToDo: '',
 
-            // Dichiaro ToDO, come insieme di oggetti
-            todo: [
+            // Dichiaro To-Do iniziali
+            toDos: [
                 {
                     text: "Fare la spesa",
                     done: false,

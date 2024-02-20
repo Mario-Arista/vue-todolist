@@ -26,7 +26,23 @@
         <h1 class="mb-5">
             TO DO List
         </h1>
-        
+
+        <div id="todo-container" class="mb-5">
+
+                <!-- Inizio ul -->
+            <ul>
+
+                <li v-for="(currentTask) in toDos"
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                    :class="{ 'text-decoration-line-through': currentTask.done === true }"
+                >
+                    {{ currentTask.text }}
+                </li>
+
+            </ul>
+            
+        </div>
+
     </div>
 
     <script src="./js/script.js"></script>
