@@ -27,54 +27,58 @@
             To-do List 
         </h1>
 
-        <div class="container d-flex flex-column justify-content-center">
+        <div class="row-cols-1">
             
-            <!-- Inizio ul -->
-            <ul class="col-8"
-                v-if="toDos.length > 0"
-            >
-                <li v-for="(currentTask, index) in toDos"
-                    class="list-group-item d-flex justify-content-between align-items-center bg-transparent border border-1 border-success text-white p-3"
+            <!-- Lista dei To do -->
+            <ul class="custom-width mb-4 m-auto"
+                    v-if="toDos.length > 0"
                 >
-                    <span
-                        @click="toggleClick(index)"
-                        :class="{ 'text-decoration-line-through': currentTask.done === true }"
+                    <li v-for="(currentTask, index) in toDos"
+                        class="list-group-item d-flex justify-content-between align-items-center bg-transparent border border-1 border-success text-white p-3"
                     >
-                        {{ currentTask.text }}
-                    </span>
+                        <span
+                            @click="toggleClick(index)"
+                            :class="{ 'text-decoration-line-through': currentTask.done === true }"
+                        >
+                            {{ currentTask.text }}
+                        </span>
 
-                    <i 
-                        @click="deleteTodo(index)"
-                        class="fa-solid fa-circle-xmark fs-4">
-                    </i>
-                </li>
+                        <i 
+                            @click="deleteTodo(index)"
+                            class="fa-solid fa-circle-xmark fs-4">
+                        </i>
+                    </li>
 
             </ul>
-            <p v-else class="col-8 text-warning">
-                Hai fatto tutte le cose che dovevi fare!
+
+            <!-- Paragrafo in caso non ci siano todo -->
+            <p v-else class="custom-width text-warning m-auto mb-4">
+                    Hai fatto tutte le cose che dovevi fare!
             </p>
 
-            <div class="col-8 input-group mb-4">
-                
-                <input 
-                    v-model="newToDo"
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Testo del TODO" 
-                    aria-label="Testo del TODO" 
-                    aria-describedby="add-todo"
-                >
-                <button 
-                    class="btn btn-outline-success" 
-                    type="button" 
-                    id="add-task"
-                    @click="addTodo()"
-                >
-                    INSERT
-                </button>
+            <!-- Input + bottone -->
+            <div class="custom-width input-group m-auto">
+                    
+                    <input 
+                        v-model="newToDo"
+                        type="text" 
+                        class="form-control border border-1 border-success" 
+                        placeholder="Testo del TODO" 
+                        aria-label="Testo del TODO" 
+                        aria-describedby="add-todo"
+                        @keydown.enter="addTodo()"
+                    >
+                    <button 
+                        class="btn btn-outline-success text-bg-dark" 
+                        type="button" 
+                        id="add-task"
+                        @click="addTodo()"
+                    >
+                        INSERT
+                    </button>
             </div>
-            
-        </div>
+        </div> 
+        
 
     </div>
 

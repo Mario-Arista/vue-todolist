@@ -30,17 +30,24 @@ createApp({
 
     methods: {
 
-        // Fuznione per cancellare todo al click sulla X
+        // Funzione per cancellare todo al click sulla X
         deleteTodo(todoIndex) {
             this.toDos.splice(todoIndex, 1)
         },
 
         // Funzione per aggiungere nuovo Todo
         addTodo() {
-            this.toDos.push({ text: this.newToDo, done: false });
 
-            // Cancello contenuto campo input
-            this.newToDo = "";
+            // Prima controllo se campo input vuoto
+            if (this.newToDo.trim() !== '') {
+
+                // Poi aggiungo oggetto
+                this.toDos.push({ text: this.newToDo, done: false });
+
+                // Cancello contenuto campo input
+                this.newToDo = "";
+            }
+            
         },
 
         // Funzione per "Toggolare" al click il testo del todo
