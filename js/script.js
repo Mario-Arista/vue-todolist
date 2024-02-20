@@ -22,6 +22,8 @@ createApp({
                     done: false,
                 },
             ],
+
+            
         }
     },
 
@@ -31,6 +33,13 @@ createApp({
         deleteTodo(todoIndex) {
             this.toDos.splice(todoIndex, 1)
         },
+
+        addTodo() {
+            this.toDos.push({ text: this.newToDo, done: false });
+
+            // Cancello contenuto campo input
+            this.newToDo = "";
+        }
     },
 
 }).mount("#app");
