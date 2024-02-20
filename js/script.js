@@ -4,9 +4,24 @@ createApp({
     data() {
         return {
 
-            // Inserire dati
-            
+            // Dichiaro nuovo To Do vuoto
+            newToDo: '',
 
+            // Dichiaro ToDO, come insieme di oggetti
+            todo: [
+                {
+                    text: "Fare la spesa",
+                    done: false,
+                },
+                {
+                    text: "Comprare le Fruittella",
+                    done: true,
+                },
+                {
+                    text: "Guardare Mare Fuori",
+                    done: false,
+                },
+            ],
         }
     },
 
