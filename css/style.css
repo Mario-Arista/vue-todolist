@@ -6,3 +6,12 @@
 ul {
     padding: 0;
 }
+
+#container-todo .fa-circle-xmark {
+    cursor: pointer;
+}
+
+#container-todo #todos span {
+    cursor: pointer;
+    user-select: none;
+}
